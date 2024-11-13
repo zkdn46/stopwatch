@@ -17,8 +17,7 @@ public class Time extends Thread {
 	protected boolean isRun = true;
 
 	public void run() {
-
-		while (true) {
+		while (!isInterrupted()) {
 			try {
 				if (isRun) {
 					Calendar cal = Calendar.getInstance();
@@ -29,15 +28,15 @@ public class Time extends Thread {
 					buffer.setLength(0);
 
 					writer.flush();
-				} else {
-					Calendar cal = Calendar.getInstance();
-					buffer.append(timeFormat.format(cal.getTime()));
-					buffer.setLength(0);
-				}
+				} 
 				Thread.sleep(1000);
-			} catch (Exception e) {
-				break;
-			}
+			} catch (InterruptedException e) {
+	            break;
+	        } catch (Exception e) {
+	            e.printStackTrace();
+	        }
+			
+			
 		}
 
 	}
