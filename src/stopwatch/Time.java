@@ -1,14 +1,17 @@
 package stopwatch;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class Time extends Thread {
-	private StringBuffer buffer = new StringBuffer();
-	private BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out));
-	private SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
+	protected static StringBuffer buffer = new StringBuffer();
+	protected static BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+	protected static BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out));
+	protected static SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
 
 	protected int sec = 1;
 	protected boolean isRun = true;
