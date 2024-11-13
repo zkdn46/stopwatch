@@ -11,7 +11,8 @@ public class Control extends Thread {
 			try {
 				String sel = Time.reader.readLine();
 				if (sel.equals("q")) {
-					Time.writer.append(String.format("%d분 %d초 소요", time.sec / 60, time.sec % 60));
+					Time.writer.append(String.format("%d분 %d초 소요", time.sec / 60, (time.sec % 60) - 1));
+					Time.writer.flush();
 					timeThread.interrupt();
 					break;
 				} else if (sel.equals("h")) {
@@ -20,7 +21,7 @@ public class Control extends Thread {
 					time.isRun = true;
 				}
 			} catch (Exception e) {
-
+				e.printStackTrace();
 			}
 		}
 
