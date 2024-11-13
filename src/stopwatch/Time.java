@@ -12,12 +12,15 @@ public class Time extends Thread {
 	protected static BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 	protected static BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out));
 	protected static SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
+	
+	
 
+	
 	protected int sec = 1;
 	protected boolean isRun = true;
 
 	public void run() {
-		while (!isInterrupted()) {
+		while (true) {
 			try {
 				if (isRun) {
 					Calendar cal = Calendar.getInstance();
